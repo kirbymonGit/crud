@@ -3,13 +3,13 @@
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
+    
+// Obtener la conexión a la base de datos
     require_once 'connection.php';
-
-    // Obtener la conexión a la base de datos
-    $conexion = Database::getConnection();
+    //$conexion = Database::getConnection();
 
     // Consulta para eliminar el empleado
-    $consulta = "DELETE FROM empleados WHERE id = $id";
+    $consulta = "DELETE FROM empleados WHERE id = '$id'";
     $resultado = mysqli_query($conexion, $consulta);
 
     // Verificar si la consulta se ejecutó correctamente

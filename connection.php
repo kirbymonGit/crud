@@ -1,10 +1,10 @@
 <?php
-class Database {
+/*class Database {
     private static $servername = "localhost";
     private static $username = "root";
     private static $password = "";
     private static $database = "crud_example";
-    private static $connection = null; // Variable estática para almacenar la conexión
+    private static $connection = null;
 
     private function __construct() {}
 
@@ -18,5 +18,20 @@ class Database {
         }
         return self::$connection;
     }
+}*/
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "test";
+
+// Crear conexión
+$conexion = new mysqli($servername, $username, $password, $database);
+
+// Verificar la conexión
+if ($conexion->connect_error) {
+    die("Error al conectar a la base de datos: " . $conexion->connect_error);
 }
+
+// Establecer el conjunto de caracteres
+$conexion->set_charset("utf8mb4");
 ?>

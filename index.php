@@ -28,10 +28,11 @@
         </tr>
 
         <?php
-        require_once 'connection.php';
+        
 
         // Obtener la conexión a la base de datos
-        $conexion = Database::getConnection();
+        require_once 'connection.php';
+       // $conexion = Database::getConnection();
 
         // Consulta para obtener la lista de empleados
         $consulta = "SELECT * FROM empleados";
@@ -46,7 +47,7 @@
             echo "<td>" . $empleado['puesto'] . "</td>";
             echo "<td>";
             echo "<a href='editar.php?id=" . $empleado['id'] . "' class='btn btn-primary'>Editar</a> ";
-            echo "<a href='eliminar.php?id=" . $empleado['id'] . "' class='btn btn-danger'>Eliminar</a>";
+            echo "<a href='borrar.php?id=" . $empleado['id'] . "' class='btn btn-danger'>Eliminar</a>";
             echo "</td>";
             echo "</tr>";
         }

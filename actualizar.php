@@ -1,4 +1,7 @@
 <?php
+
+    require_once 'connection.php';
+
 // Verificar si se enviaron los datos del empleado a actualizar
 if (isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['edad']) && isset($_POST['puesto'])) {
     $id = $_POST['id'];
@@ -6,11 +9,10 @@ if (isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['edad']) && i
     $edad = $_POST['edad'];
     $puesto = $_POST['puesto'];
 
-    require_once 'connection.php';
 
        
     // Consulta para actualizar los datos del empleado
-    $consulta = "UPDATE empleados SET nombre = '$nombre', edad = $edad, puesto = '$puesto' WHERE id = $id";
+    $consulta = "UPDATE empleados SET nombre = '$nombre', edad = '$edad', puesto = '$puesto' WHERE id = '$id' ";
     $resultado = mysqli_query($conexion, $consulta);
 
     // Verificar si la consulta se ejecutó correctamente

@@ -10,16 +10,16 @@
     <h1>Editar empleado</h1>
 
     <?php
+        // Obtener la conexión a la base de datos
+        require_once 'connection.php';
+      //  $conexion = Database::getConnection();
+   
     // Verificar si se envió el ID del empleado a editar
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        require_once 'connection.php';
+     //echo $id;
         
-        // Obtener la conexión a la base de datos
-    $conexion = Database::getConnection();
-
-
         
 
         // Consulta para obtener los datos del empleado a editar
@@ -29,6 +29,7 @@
 
          // Mostrar el formulario con los datos del empleado
     if ($empleado) {
+      //  if ($resultado){
             ?>
             <form action="actualizar.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $empleado['id']; ?>">
